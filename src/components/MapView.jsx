@@ -20,15 +20,17 @@ const MapView = ({ lat, lng, label }) => {
   }
 
   return (
-    <MapContainer center={[lat, lng]} zoom={13} style={{ height: '360px', width: '100%', borderRadius: '8px' }}>
-      <TileLayer
-        attribution='&copy; OpenStreetMap contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <Marker position={[lat, lng]}>
-        <Popup>{label || 'Current location'}</Popup>
-      </Marker>
-    </MapContainer>
+    <div className="map-fade-in">
+      <MapContainer center={[lat, lng]} zoom={13} style={{ height: '360px', width: '100%', borderRadius: '8px' }}>
+        <TileLayer
+          attribution='&copy; OpenStreetMap contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={[lat, lng]}>
+          <Popup>{label || 'Current location'}</Popup>
+        </Marker>
+      </MapContainer>
+    </div>
   );
 };
 
