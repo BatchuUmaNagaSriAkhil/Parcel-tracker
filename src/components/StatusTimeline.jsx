@@ -12,8 +12,11 @@ const StatusTimeline = ({ events }) => {
 
   return (
     <ol className="timeline">
-      {events.map((event) => (
-        <li key={event._id} className={`timeline-item status-${event.status}`}>
+      {events.map((event, index) => (
+        <li
+          key={event._id}
+          className={`timeline-item status-${event.status}${index === events.length - 1 ? ' latest' : ''}`}
+        >
           <div className="timeline-dot" />
           <div className="timeline-content">
             <strong>{STATUS_LABELS[event.status] || event.status}</strong>
